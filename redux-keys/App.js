@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
-import { AppHeader } from './src/components';
+import { AppHeader, KeyButton } from './src/components';
 import Store from './src/store';
+
+//import { SelectKey, SelectCapo } from './src/actions';
 
 export default class App extends Component {
   render() {
@@ -10,6 +12,7 @@ export default class App extends Component {
       <Provider store={Store}>
         <View style={styles.container}>
           <AppHeader headerText='Redux Keys' />
+          <KeyButton />
         </View>
       </Provider>
     );

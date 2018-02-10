@@ -1,24 +1,24 @@
-import { Platform } from 'react-native';
-import { createStore, applyMiddleware, compose } from 'redux';
-import devTools from 'remote-redux-devtools';
-import promise from 'redux-promise';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+import {
+  createStore,
+} from 'redux';
+
 
 import Reducer from '../reducers';
 
-const middleware = applyMiddleware(thunk, promise, logger);
 
 const Store = createStore(
   Reducer,
-  compose(
-    middleware,
-    devTools({
-      name: Platform.OS,
-      hostname: 'localhost',
-      port: 5678
-    })
-  )
 );
 
 export default Store;
+
+// debug code
+console.log(Store.getState().selections);
+
+//log SelectionReducer each time the state changes
+const unsubsribe = Store.subscribe(() => {
+  console.log(Store.getState().selections);
+});
+
+//Store.dispatch(SelectKey(5));
+//Store.dispatch(SelectCapo(3));
