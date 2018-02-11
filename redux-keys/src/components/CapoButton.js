@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Text, ButtonGroup } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { SelectKey } from '../actions';
+import { SelectCapo } from '../actions';
 
 //const SCREEN_WIDTH = Dimensions.get('window').width;
 
-class KeyButtonComp extends Component {
+class CapoButtonComp extends Component {
 
   render() {
-    const keys = this.props.keys;
-    const buttons = keys.map(key => (key.shortKey ? '/' : [key.key]));
-    const { selectedKeyIndex, updateIndex } = this.props;
+    //const keys = this.props.keys;
+    const buttons = Array.from(new Array(11), (x, i) => i + 1);
+    const { selectedCapoIndex, updateIndex } = this.props;
 
     return (
       <View>
-        <Text h1>Key</Text>
-        <Text h2>{keys[selectedKeyIndex].key}</Text>
+        <Text h1>Capo</Text>
+        <Text h2>{selectedCapoIndex + 1}</Text>
         <ButtonGroup
-          selectedIndex={selectedKeyIndex}
+          selectedIndex={selectedCapoIndex}
           onPress={updateIndex}
           containerStyle={styles.containerStyle}
           buttons={buttons}
@@ -37,18 +37,18 @@ const styles = {
 };
 
 const mapStateToProps = state => ({
-  keys: state.keys,
-  selectedKeyIndex: state.selections.selectedKeyIndex
+  //keys: state.keys,
+  selectedCapoIndex: state.selections.selectedCapoIndex
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     updateIndex: (index) => {
-      dispatch(SelectKey(index));
+      dispatch(SelectCapo(index));
     }
 
   };
 };
 
-const KeyButton = connect(mapStateToProps, mapDispatchToProps)(KeyButtonComp);
-export default KeyButton;
+const CapoButton = connect(mapStateToProps, mapDispatchToProps)(CapoButtonComp);
+export default CapoButton;

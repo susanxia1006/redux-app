@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
-import { AppHeader, KeyButton } from './src/components';
+import { AppHeader, KeyButton, CapoButton, CapoKey } from './src/components';
 import Store from './src/store';
 
 //import { SelectKey, SelectCapo } from './src/actions';
@@ -13,6 +13,8 @@ export default class App extends Component {
         <View style={styles.container}>
           <AppHeader headerText='Redux Keys' />
           <KeyButton />
+          <CapoButton />
+          <CapoKey />
         </View>
       </Provider>
     );
