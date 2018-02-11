@@ -5,7 +5,7 @@ export const SelectKey = (keyIndex) => ({
   keyIndex
 });
 
-export const SelectCapo = (capo) => ({
+export const SelectCapo = (capoIndex) => ({
   type: SELECT_CAPO,
-  capo
+  capoIndex
 });
