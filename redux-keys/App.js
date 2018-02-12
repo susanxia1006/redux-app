@@ -10,6 +10,7 @@ export default class App extends Component {
   render() {
     const MainNavigator = StackNavigator({
       Main: { screen: MainScreen }
+
     });
 
     return (
