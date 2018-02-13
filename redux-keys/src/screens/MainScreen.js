@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Platform, Image } from 'react-native';
-import { KeyButton, CapoButton, CapoKey } from '../components';
+import { KeyButton, CapoButton, CapoKey, ChordsModal } from '../components';
 import { STATUS_BAR_HEIGHT } from '../utils/constants';
 
 class MainScreen extends Component {
@@ -16,16 +16,15 @@ class MainScreen extends Component {
       />
 
     )
-    //headerLeft: <View />
 
   });
   render() {
     return (
       <View style={styles.container}>
-        {/*<AppHeader headerText='Redux Keys' />*/}
         <KeyButton />
         <CapoButton />
         <CapoKey />
+        <ChordsModal />
       </View>
     );
   }
