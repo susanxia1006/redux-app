@@ -14,9 +14,9 @@ class CapoButtonComp extends Component {
     const { selectedCapoIndex, updateIndex } = this.props;
 
     return (
-      <View>
-        <Text h1>Capo</Text>
-        <Text h2>{selectedCapoIndex + 1}</Text>
+      <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 10 }}>
+        <Text h3>Capo</Text>
+        <Text h1>{selectedCapoIndex + 1}</Text>
         <ButtonGroup
           selectedIndex={selectedCapoIndex}
           onPress={updateIndex}
@@ -41,14 +41,11 @@ const mapStateToProps = state => ({
   selectedCapoIndex: state.selections.selectedCapoIndex
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    updateIndex: (index) => {
-      dispatch(SelectCapo(index));
-    }
-
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  updateIndex: (index) => {
+    dispatch(SelectCapo(index));
+  }
+});
 
 const CapoButton = connect(mapStateToProps, mapDispatchToProps)(CapoButtonComp);
 export default CapoButton;

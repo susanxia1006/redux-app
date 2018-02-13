@@ -14,9 +14,9 @@ class KeyButtonComp extends Component {
     const { selectedKeyIndex, updateIndex } = this.props;
 
     return (
-      <View>
-        <Text h1>Key</Text>
-        <Text h2>{keys[selectedKeyIndex].key}</Text>
+      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Text h3>Key</Text>
+        <Text h1>{keys[selectedKeyIndex].key}</Text>
         <ButtonGroup
           selectedIndex={selectedKeyIndex}
           onPress={updateIndex}
@@ -41,14 +41,13 @@ const mapStateToProps = state => ({
   selectedKeyIndex: state.selections.selectedKeyIndex
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    updateIndex: (index) => {
-      dispatch(SelectKey(index));
-    }
+const mapDispatchToProps = dispatch => ({
+  updateIndex: (index) => {
+    dispatch(SelectKey(index));
+  }
 
-  };
-};
+});
+
 
 const KeyButton = connect(mapStateToProps, mapDispatchToProps)(KeyButtonComp);
 export default KeyButton;
